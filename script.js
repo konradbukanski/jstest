@@ -30,28 +30,31 @@ const eng = [
 ];
 const pl = [
   {
-    question: "11111111111111111pl",
-    AnswerA: "aaaaaaaaaaa",
+    question:
+      "Czy JavaScript wspiera dziedziczenie? Jeżeli tak, to w jaki sposób?",
+    AnswerA:
+      "W JS wszystko jest obiektem, nawet funkcje. W efekcie czego można zaimplementować mechanizm dziedziczenia, opierając się na prototypach.",
     AnswerB: "bbbbbbbbbbb",
     AnswerC: "ccccccccccccccc",
     corect: "A"
   },
   {
-    question: "222222222222222222pl",
+    question: "Jak w JavaScript zrobić tablicę asocjacyjną?",
     AnswerA: "aaaaaaaaaaa",
     AnswerB: "bbbbbbbbbbb",
     AnswerC: "ccccccccccccccc",
     corect: "B"
   },
   {
-    question: "3333333333333333333pl",
-    AnswerA: "aaaaaaaaaaa",
+    question: "Co to jest hoisting?",
+    AnswerA:
+      "Hoisting to wbudowany w JavaScript mechanizm wynoszący wszystkie deklaracje zmiennych na początek funkcji.",
     AnswerB: "bbbbbbbbbbb",
     AnswerC: "ccccccccccccccc",
     corect: "C"
   },
   {
-    question: "4444444444444444444pl",
+    question: "Jaka jest różnica między == i ===?",
     AnswerA: "aaaaaaaaaaa",
     AnswerB: "bbbbbbbbbbb",
     AnswerC: "ccccccccccccccc",
@@ -97,6 +100,10 @@ document.querySelector(".formBtn").addEventListener("click", () => {
       answerChecked = false;
     } else {
       alert(`Uzyskałeś ${result}/4 punktów`);
+      document.querySelector(".startTest").style.display = "flex";
+      document.querySelector(".exercise").style.display = "none";
+      j = 0;
+      result = 0;
     }
   } else alert("zaznacz odpowiedź");
 });
@@ -104,8 +111,8 @@ document.querySelector(".formBtn").addEventListener("click", () => {
 document.querySelector(".startTestBtn").addEventListener("click", () => {
   document.querySelectorAll(".startTest__language--input").forEach(input => {
     if (input.checked) {
-      input.value === "pl" ? (itemList = pl) : null;
-      input.value === "eng" ? (itemList = eng) : null;
+      input.value === "pl" ? (itemList = pl.slice()) : null;
+      input.value === "eng" ? (itemList = eng.slice()) : null;
     }
   });
   document.querySelector(".startTest").style.display = "none";
